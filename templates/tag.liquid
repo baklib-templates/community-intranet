@@ -1,0 +1,39 @@
+<section class="mx-auto max-w-screen-lg px-3 py-6">
+      <!-- tag name -->
+      <div class="rounded shadow-md mb-4">
+        <div class="h-5 rounded-t" style="background-color: {{ tag.color }}"></div>
+        <div class="px-3 py-6 text-xl font-black bg-white rounded-b dark:bg-slate-500">
+          <span class="w-2 h-2 rounded-full shrink-0" style="background-color: {{ tag.color }}"></span>
+          <span class="flex-grow w-0 break-words" style="color: {{ tag.color }}"> # {{ tag.name }}</span>
+        </div>
+      </div>
+
+      <!-- filters by tag name -->
+      <div role="list" class="space-y-3 lg:space-y-5">
+        {% paginate_tag tag.pages, as: 'pages' %}
+          {% for page in pages %}
+            <div class="p-4 rounded-lg hover:bg-slate-200">
+              <a class="text-xl font-bold" href="{{ page.url }}">
+                <span>{{ page.link_text | highlight: search.keywords }}</span>
+              </a>
+              <p class="mt-2 text-base text-gray-700">
+                {{ page.settings.content | strip_html | highlight: search.keywords }}
+              </p>
+              <div class="grid grid-cols-6 gap-4">
+                <div class="col-span-6 mt-2 mb-0 text-sm text-justify text-gray-400 text-truncate md:col-span-3">
+                  {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
+                </div>
+                <p class="hidden col-span-6 mt-2 text-sm italic text-right text-gray-300 md:col-span-3 md:block">
+                  来源: <a href="/0e5f/1205/3577/d08c">http://helperp.kuaidizs.cn/0e5f/1205/3577/d08c</a>
+                </p>
+              </div>
+            </div>
+            <hr class="border-dashed">
+          {% else %}
+            {% assign message = "empty.name" | t %}
+            {% render 'empty', message: message %}
+          {% endfor %}
+          {% render 'paginate', paginate: paginate %}
+        {% endpaginate_tag %}
+      </div>
+</section>

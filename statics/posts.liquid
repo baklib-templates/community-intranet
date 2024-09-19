@@ -1,0 +1,40 @@
+
+{% assign pages = site.pages['/'].pages_in_list | order_by: '-created_at' %}
+
+{% set_meta_title 'Baklib最近更新' %}
+{% set_meta_description 'Baklib最近更新信息，Baklib信息流，最近更新数据时间轴。' %}
+{% set_meta_keywords 'Baklib,Recent News' %}
+
+{% paginate_tag pages, per: 9 %}
+  <div class="mx-auto max-w-screen-lg px-3 py-6">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold">最近更新</h1>
+      <div class="mt-3">了解最新更新内容，包括文章和案例等。</div>
+    </div>
+  </div>
+  <div class="mx-auto max-w-screen-lg px-3 py-6">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {% for page in pages %}
+        <a class="hover:translate-y-1" href="{{ page.path }}">
+          <div class="overflow-hidden rounded-md bg-secondary text-white">
+            <div class="aspect-w-3 aspect-h-2">
+              {% assign random_number = "now" | date: "%N" | modulo: 4 | plus: 1 %}
+              {% assign default_thumb_url = 'images/image-post' | append: random_number | append: '.jpg' |  asset_url %}
+              <img class="h-full w-full object-cover object-center" src="{{ page.settings.thumb_url |  default: default_thumb_url }}" alt="{{ page.link_text }}" loading="lazy" />
+            </div>
+            <div class="px-3 pt-4 pb-6 text-center">
+              <h2 class="text-xl font-semibold">{{ page.settings.title }}</h2>
+              <div class="mt-1 text-xs ">{{ page.published_at | date: "%Y-%m-%d" }}</div>
+              <div class="mt-2 text-sm">{{ page.settings.description }}</div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="mx-auto max-w-screen-lg px-3 py-6">
+    <div class="flex justify-center gap-8">
+      {% render 'paginate', paginate: paginate %}
+    </div>
+  </div>
+{% endpaginate_tag %}

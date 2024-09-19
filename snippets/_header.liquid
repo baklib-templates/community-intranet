@@ -1,0 +1,23 @@
+<div id="header" class="mx-auto max-w-screen-lg px-3 py-6">
+  <div class="flex flex-col gap-y-3 sm:flex-row sm:items-center sm:justify-between">
+    <!-- Logo -->
+    <a href="/" aria-label="{{ site.name }}" class="flex items-center flex-grow">
+      {% assign logo = 'images/logo.png' | asset_url %}
+      <div class="flex items-center bg-gradient-to-br from-primary to-secondary bg-clip-text text-xl font-bold text-transparent">
+        <img src="{{ site.favicon_url | default: logo }}" class="w-8 h-8" alt="Docs" />
+        <h1 class="ml-2">{{ site.name }}</h1>
+      </div>
+    </a>
+    <nav>
+      {% # 自定义导航菜单 %}
+      <ul class="flex gap-x-3 font-medium">
+        {% if site.settings.header_menu_html %}
+          {{ site.settings.header_menu_html }}
+        {% else %}
+          <li><a class="hover:underline" href="{{ statics['/get-started'] }}">教程</a></li>
+          <li><a class="hover:underline" href="{{ statics['/posts'] }}">文章列表</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>

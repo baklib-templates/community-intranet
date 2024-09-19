@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{ site.language }}" class="scroll-smooth">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Baklib">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% meta_tags %}
+    {{ 'editor.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
+    {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {%# TIPS：开启 Demo intro.js 演示 %}
+    {% if site.settings.is_open_intro_guide %}
+      <script src="https://unpkg.com/intro.js/intro.js"></script>
+      <link href="https://unpkg.com/intro.js/introjs.css" rel="stylesheet">
+    {% endif %}
+    {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
+    {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }}
+
+
+    {{ site.settings.head_html }}
+    <!-- Theme Check and Update -->
+  </head>
+  <body class="">
+    <!-- Site header -->
+    {% render 'header', settings: site.settings, page: page %}
+    <!-- Page content -->
+    {{ content_for_layout }}
+    {% render 'footer', settings: site.settings %}
+  </body>
+</html>

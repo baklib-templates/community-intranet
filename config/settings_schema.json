@@ -1,0 +1,214 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "personal_blog",
+    "theme_label": "t:theme_label",
+    "theme_version": "1.0.0",
+    "theme_scope": "cms",
+    "theme_author": "Baklib",
+    "theme_description": "t:theme_description",
+    "theme_documentation_url": "https://help.baklib.cn/themes/personal-blog",
+    "theme_support_url": "https://help.baklib.cn/themes/personal-blog/settings",
+    "theme_thumb_url": "images/theme/thumb.png",
+    "theme_preview_images": [
+      "images/theme/personal-blog.png",
+      "images/theme/index-dark.png",
+      "images/theme/index.png",
+      "images/theme/page.png"
+    ],
+    "theme_languages": [
+      {
+        "name": "中文简体",
+        "value": "zh-CN"
+      },
+      {
+        "name": "English",
+        "value": "en-US"
+      },
+      {
+        "name": "Germany",
+        "value": "de"
+      },
+      {
+        "name": "France",
+        "value": "fr"
+      }
+    ],
+    "recommendations": {
+      "color_schemas": {
+        "fashion": {
+          "name": "时尚",
+          "colors": {
+            "--theme-color-primary": "#03A9F4",
+            "--theme-color-secondary": "#E91E63",
+            "--theme-color-accent": "#AAAAAA",
+            "--theme-color-info": "#2196F3",
+            "--theme-color-success": "#4CAF50",
+            "--theme-color-warning": "#FFC107"
+          }
+        },
+        "old_school": {
+          "name": "复古",
+          "colors": {
+            "--theme-color-primary": "#9C27B0",
+            "--theme-color-secondary": "#673AB7",
+            "--theme-color-accent": "#AAAAAA",
+            "--theme-color-info": "#418CC8",
+            "--theme-color-success": "#29B52F",
+            "--theme-color-warning": "#FFC107"
+          }
+        }
+      },
+      "initial_pages": {
+        "default": {
+          "name": "Personal Blog",
+          "default": true,
+          "pages": [
+            {
+              "name": "Project 1",
+              "slug": "project1",
+              "template": "page",
+              "settings":{
+                "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum. Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
+                "type": "1"
+              }
+            },
+            {
+              "name": "Project 2",
+              "slug": "project2",
+              "template": "page",
+              "settings":{
+                "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum. Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
+                "type": "1"
+              }
+
+            },
+            {
+              "name": "Project 3",
+              "slug": "project3",
+              "template": "page",
+              "settings":{
+                "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum. Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
+                "type": "1"
+              }
+            },
+            {
+              "name": "The First Blog Post",
+              "slug": "post1",
+              "template": "page",
+              "settings":{
+                "type": "0"
+              }
+            },
+            {
+              "name": "The Second Blog Post",
+              "slug": "post2",
+              "template": "page",
+              "settings":{
+                "type": "0"
+              }
+            },
+            {
+              "name": "The Third Blog Post",
+              "slug": "post3",
+              "template": "page",
+              "settings":{
+                "type": "0"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "t:settings_schema.generic.name",
+    "settings": [
+      {
+        "id": "is_open_intro_guide",
+        "type": "checkbox",
+        "default": false,
+        "label": "开启Intro Step Guide 指引教程",
+        "info": "Demo项目使用，正式项目不需要开启"
+      },
+      {
+        "id": "search_title",
+        "label": "搜索栏标题",
+        "info": "放在底部搜索栏位置标题",
+        "type": "text",
+        "default": "👏 Search for all the site"
+      },
+      {
+        "id": "search_info",
+        "label": "搜索栏描述",
+        "info": "底部搜索栏位置描述",
+        "type": "text",
+        "default": "👏欢迎提出您的宝贵意见。"
+      },
+      {
+        "id": "copyright_info",
+        "label": "版权声明",
+        "type": "html",
+        "default": "👏 © Copyright 2024 by @tanmer. Built with ♥ <a href=''> Baklib.</a>。"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.generic.header_name",
+    "settings": [
+      {
+        "id": "header_menu_html",
+        "type": "html",
+        "label": "t:settings_schema.generic.settings.header_menu_html.label",
+        "rows": 10,
+        "placeholder": "<a href='#'> title </a>"
+      },
+      {
+        "id": "footer_menu_html",
+        "type": "html",
+        "label": "t:settings_schema.generic.settings.footer_menu_html.label",
+        "rows": 10,
+        "placeholder": "<a href='#'> title </a>"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.generic.head_title",
+    "settings": [
+      {
+        "id": "head_html",
+        "type": "html",
+        "label": "t:settings_schema.generic.settings.head_html.label",
+        "info": "t:settings_schema.generic.settings.head_html.info",
+        "rows": 10,
+        "placeholder": "t:settings_schema.generic.settings.head_html.placeholder"
+      }
+    ]
+  },
+  {
+    "name": "功能定制块",
+    "settings": [
+      {
+        "id": "features_one",
+        "type": "html",
+        "label": "Features One",
+        "rows": 10,
+        "placeholder": "some html code"
+      },
+      {
+        "id": "features_two",
+        "type": "html",
+        "label": "Features Two",
+        "rows": 10,
+        "placeholder": "some html code"
+      },
+      {
+        "id": "features_three",
+        "type": "html",
+        "label": "Features Three",
+        "rows": 10,
+        "placeholder": "some html code"
+      }
+    ]
+  }
+]

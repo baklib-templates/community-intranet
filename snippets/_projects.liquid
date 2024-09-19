@@ -1,0 +1,44 @@
+{% assign indexx = 0 %}
+<div id="projects" class="mx-auto max-w-screen-lg px-3 py-6">
+  <div class="mb-6 text-2xl font-bold">Recent <span class="bg-gradient-to-br from-accent to-primary bg-clip-text text-transparent">Projects</span></div>
+
+  <div class="flex flex-col gap-6">
+    {% for page in pages %}
+        {% if page.settings.type.value == '1' %}
+                {% assign indexx = indexx + 1 %}
+                <div class="flex flex-col items-center gap-x-8 rounded-md bg-secondary p-3 md:flex-row">
+                <div class="shrink-0">
+                        <a href="{{ page.path }}">
+                                {% assign default_thumb_url = 'images/project-' | append: forloop.index | append: '.png' | asset_url %}
+                                <img class="h-36 w-36 hover:translate-y-1" src="{{ page.settings.thumb_url |  default: default_thumb_url }}" alt="{{ page.link_text }}" loading="lazy" />
+                        </a>
+                </div>
+                <div>
+                        <div class="flex flex-col items-center gap-y-2 md:flex-row">
+                                <a class="hover:text-primary" href="{{ page.path }}">
+                                        <div class="text-xl font-semibold text-white">{{ page.link_text }}</div>
+                                </a>
+                        <div class="ml-3 flex gap-2">
+                                {% for tag in page.settings.tags %}
+                                        <a href="{{ tag.path }}" class="rounded-md px-2 py-1 text-xs font-semibold bg-info text-white"
+                                                style="
+                                                background-color: hsl({{ tag.color_hls[0] }}, {{ tag.color_hls[1] }}%, 90%);
+                                                color: {{ tag.color }};">
+                                                {{ tag.name }}
+                                        </a>
+                                {% endfor %}
+                        </div>
+                        </div>
+                        <p class="mt-3 text-white"> {{ page.settings.description }}</p>
+                </div>
+                </div>
+        {% else %}
+                {% if indexx > 3 %}
+                        {% break %}
+                {% else %}
+                        {% continue %}
+                {% endif %}
+        {% endif %}
+    {% endfor %}
+  </div>
+</div>

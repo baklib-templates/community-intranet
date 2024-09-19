@@ -1,0 +1,59 @@
+{% set_meta_title '如何使用Preline UI' %}
+{% set_meta_description '如果通用Baklib CMS 构建一套基于Preline UI 的信息系统' %}
+{% set_meta_keywords 'Baklib, Preline' %}
+
+<div class="mx-auto max-w-screen-lg px-3 py-6">
+  <div class="flex items-start">
+    <div class="prose prose-indigo max-w-none">
+      <h1>模板使用教程</h1>
+      <h3>1. 添加模板到组织中</h3>
+      <p>Personal Blog 模板存放着gitlab上的，你可以进入Baklib 组织模板管理中，添加到组织模板。</p>
+      <pre style="white-space: pre; overflow-wrap: break-word; overflow-x: auto; font-family: monospace;">
+git@gitlab.com:baklib/themes/personal-blog.git</pre>
+      <h3>2. 通过模板创建站点</h3>
+      <p>选择“添加新应用”，在模板市场中找到以上的【Personal Blog】模板，创建好一个网站。</p>
+      <p>1) 在应用管理界面填充相关预定义信息。</p>
+      <p>2) 在【页面管理】--【首页】编辑界面，设置首页信息。</p>
+      <p>3) 在【页面管理】中添加新页面。页面可按类型区分并分别展示在【项目案例】和【博客文章】类目下。</p>
+
+      <h3>3. 构建网站页面</h3>
+      <p>打开模板编辑器，将创建的静态网页放在文件夹<code>/statics</code>下，创建的动态模板网页放在文件夹<code>/templates</code>下。</p>
+      <blockquote>
+        <p>关于模板开发教程请参考：<a href="https://dev.baklib.cn">Baklib 开发者中心</a>.
+        </p>
+      </blockquote>
+      <p></p>
+      <h1>界面预览</h1>
+      <p class="mt-1 text-gray-600 dark:text-neutral-400">
+        Personal Blog模板界面比较简单，只有一个首页、一个列表页和一个详情页。
+      </p>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/index-dark.png' | asset_url }}" alt="Baklib" loading="lazy" />
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/index.png' | asset_url }}" alt="Baklib" loading="lazy" />
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/list-dark.png' | asset_url }}" alt="Baklib" loading="lazy" />
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/list.png' | asset_url }}" alt="Baklib" loading="lazy" />
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/page-dark.png' | asset_url }}" alt="Baklib" loading="lazy" />
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/page.png' | asset_url }}" alt="Baklib" loading="lazy" />
+        </div>
+      </div>
+
+      <h2>什么是 Baklib 站点模板?</h2>
+      <p class="mt-1 text-gray-600 dark:text-neutral-400">
+        Baklib 是一个基础云平台，开箱即用，通过Baklib可以帮助你省掉购买服务器、存储、带宽，配置域名，SEO，部署和运维等一系列繁琐的基础工作；
+        同时，Baklib通过模板创建了网站的基本架构，你只需要把精力放在页面设计、内容添加等创意性的工作上，而不用关心更多的技术细节。
+      </p>
+      <p><a href="https://www.baklib.cn">去官网了解更多。</a></p>
+    </div>
+  </div>
+</div>
