@@ -115,18 +115,16 @@
 
 <!--/ article-->
 {% schema %}
-    {
+  {
     "name": "Knowledge base post",
     "thumb_url": "images/theme/page.png",
     "description": "Knowledge Base Post detail",
-    "sub_page_templates": ["knowledge-base-post"],
+    "sub_page_templates": ["kb_post"],
     "settings": [
         {
           "id": "title",
           "type": "text",
-          "placeholder": "",
-          "label": "标题",
-          "info": "显示在正文上方的文章标题"
+          "label": "标题"
         },
         {
           "id": "description",
@@ -162,5 +160,5 @@
           "label": "封面图片"
         }
     ]
-    }
+  }
 {% endschema %}

@@ -72,8 +72,8 @@
             },
             {
               "name": "Knowledge Base",
-              "slug": "kb",
-              "template": "knowledge-base"
+              "slug": "knowledge",
+              "template": "kb"
             },
             {
               "name": "Changelog",
