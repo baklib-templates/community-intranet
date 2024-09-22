@@ -1,20 +1,21 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "personal_blog",
+    "theme_name": "intranet_center",
     "theme_label": "t:theme_label",
     "theme_version": "1.0.0",
     "theme_scope": "cms",
     "theme_author": "Baklib",
     "theme_description": "t:theme_description",
-    "theme_documentation_url": "https://help.baklib.cn/themes/personal-blog",
-    "theme_support_url": "https://help.baklib.cn/themes/personal-blog/settings",
+    "theme_documentation_url": "https://help.baklib.cn/themes/intranet-center",
+    "theme_support_url": "https://help.baklib.cn/themes/intranet-center/settings",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
-      "images/theme/personal-blog.png",
-      "images/theme/index-dark.png",
-      "images/theme/index.png",
-      "images/theme/page.png"
+      "images/theme/intranet-center.png",
+      "images/theme/knowledge-base.png",
+      "images/theme/faqs.png",
+      "images/theme/forum.png",
+      "images/theme/channel.png"
     ],
     "theme_languages": [
       {
@@ -61,60 +62,43 @@
       },
       "initial_pages": {
         "default": {
-          "name": "Personal Blog",
+          "name": "Intranet Center",
           "default": true,
           "pages": [
             {
-              "name": "Project 1",
-              "slug": "project1",
-              "template": "page",
-              "settings":{
-                "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum. Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
-                "type": "1"
-              }
+              "name": "Channel",
+              "slug": "channel",
+              "template": "channel"
             },
             {
-              "name": "Project 2",
-              "slug": "project2",
-              "template": "page",
-              "settings":{
-                "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum. Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
-                "type": "1"
-              }
-
+              "name": "Knowledge Base",
+              "slug": "kb",
+              "template": "knowledge-base"
             },
             {
-              "name": "Project 3",
-              "slug": "project3",
-              "template": "page",
-              "settings":{
-                "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum. Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
-                "type": "1"
-              }
+              "name": "Changelog",
+              "slug": "changelog",
+              "template": "changelog"
             },
             {
-              "name": "The First Blog Post",
-              "slug": "post1",
-              "template": "page",
-              "settings":{
-                "type": "0"
-              }
+              "name": "Notifications",
+              "slug": "notifications",
+              "template": "changelog"
             },
             {
-              "name": "The Second Blog Post",
-              "slug": "post2",
-              "template": "page",
-              "settings":{
-                "type": "0"
-              }
+              "name": "faqs",
+              "slug": "faqs",
+              "template": "faqs"
             },
             {
-              "name": "The Third Blog Post",
-              "slug": "post3",
-              "template": "page",
-              "settings":{
-                "type": "0"
-              }
+              "name": "forum",
+              "slug": "forum",
+              "template": "forum"
+            },
+            {
+              "name": "Events",
+              "slug": "events",
+              "template": "events"
             }
           ]
         }
@@ -132,43 +116,10 @@
         "info": "Demo项目使用，正式项目不需要开启"
       },
       {
-        "id": "search_title",
-        "label": "搜索栏标题",
-        "info": "放在底部搜索栏位置标题",
+        "id": "org_url",
+        "label": "组织域名",
         "type": "text",
-        "default": "👏 Search for all the site"
-      },
-      {
-        "id": "search_info",
-        "label": "搜索栏描述",
-        "info": "底部搜索栏位置描述",
-        "type": "text",
-        "default": "👏欢迎提出您的宝贵意见。"
-      },
-      {
-        "id": "copyright_info",
-        "label": "版权声明",
-        "type": "html",
-        "default": "👏 © Copyright 2024 by @tanmer. Built with ♥ <a href=''> Baklib.</a>。"
-      }
-    ]
-  },
-  {
-    "name": "t:settings_schema.generic.header_name",
-    "settings": [
-      {
-        "id": "header_menu_html",
-        "type": "html",
-        "label": "t:settings_schema.generic.settings.header_menu_html.label",
-        "rows": 10,
-        "placeholder": "<a href='#'> title </a>"
-      },
-      {
-        "id": "footer_menu_html",
-        "type": "html",
-        "label": "t:settings_schema.generic.settings.footer_menu_html.label",
-        "rows": 10,
-        "placeholder": "<a href='#'> title </a>"
+        "placeholder": "https://tanmer.baklib.com"
       }
     ]
   },

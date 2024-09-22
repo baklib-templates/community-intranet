@@ -1,9 +1,12 @@
 <!doctype html>
 <html lang="{{ site.language }}" class="scroll-smooth">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Baklib">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Accept-CH" content="DPR,Width,Viewport-Width" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"  />
     {% meta_tags %}
     {{ 'editor.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
     {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
@@ -14,17 +17,23 @@
       <link href="https://unpkg.com/intro.js/introjs.css" rel="stylesheet">
     {% endif %}
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
-    {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }}
-
+    {% if true %}
+      {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }}
+    {% endif %}
 
     {{ site.settings.head_html }}
     <!-- Theme Check and Update -->
   </head>
-  <body class="">
-    <!-- Site header -->
-    {% render 'header', settings: site.settings, page: page %}
-    <!-- Page content -->
-    {{ content_for_layout }}
-    {% render 'footer', settings: site.settings %}
+  <body class="h-screen bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400">
+
+    <main class="flex h-[100dvh] overflow-hidden">
+      <div class="flex">
+        {% render 'aside' %}
+      </div>
+      <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden dark:bg-gray-900">
+        {% render 'header' %}
+        {{ content_for_layout }}
+      </div>
+    </main>
   </body>
 </html>

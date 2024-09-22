@@ -1,0 +1,120 @@
+{% assign channels = page.children_in_nav_menu %}
+{% assign pages = page.pages_in_list %}
+
+<main class="grow">
+    <!-- Page header -->
+    <div class="sm:flex sm:justify-between sm:items-center px-4 sm:px-6 py-8 border-b border-gray-200 dark:border-gray-700/60">
+
+        <!-- Left: Title -->
+        <div class="mb-4 sm:mb-0">
+            <h1 class="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 font-bold">{{ page.link_text }}</h1>
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+            <!-- Add entry button -->
+            <a  href="http://0c66d8cc5d0b.lvh.me:3000/sites/34wjh7/pages" class="btn bg-primary text-gray-100 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-white">后台管理</a>
+        </div>
+
+    </div>
+
+    <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+        <div class="max-w-3xl m-auto">
+
+            <!-- Filters -->
+            <div class="xl:pl-32 xl:-translate-x-16 mb-2">
+                <ul class="flex flex-wrap -m-1">
+                    <li class="m-1">
+                        <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-primary dark:bg-gray-100 text-white dark:text-gray-800 transition">显示所有</button>
+                    </li>
+                    {% for tag in page.settings.tags %}
+                        <li class="m-1">
+                            <a href="{{ page.path | append: '?tag=' |  append: tag.name }}"
+                            class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition">{{ tag.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Posts -->
+            {% paginate_tag pages, per: 24 %}
+                <div class="xl:-translate-x-16">
+                    {% for page in pages %}
+                        <!-- Post -->
+                        <article class="pt-6">
+                            <div class="xl:flex">
+                                <div class="w-32 shrink-0">
+                                    <div class="text-xs font-semibold uppercase text-gray-400 dark:text-gray-500 xl:leading-8">{{ page.published_at | date: "%Y-%m-%d" }}</div>
+                                </div>
+                                <div class="grow pb-6 border-b border-gray-200 dark:border-gray-700/60">
+                                    <header>
+                                        <h2 class="text-2xl text-gray-800 dark:text-gray-100 font-bold mb-3">{{ page.settings.title }}</h2>
+                                        <div class="flex flex-nowrap items-center space-x-2 mb-4">
+                                            <div class="flex items-center">
+                                                <a class="block mr-2 shrink-0" href="#0">
+                                                    <img class="rounded-full border-2 border-white dark:border-gray-800 box-content" src="{{ 'images/user-01.jpg' | asset_url }}" width="32" height="32" alt="User 04">
+                                                </a>
+                                                <a class="block text-sm font-semibold text-gray-800 dark:text-gray-100" href="#0">
+                                                    {{ page.author.name }}
+                                                </a>
+                                            </div>
+                                            <div class="text-gray-400 dark:text-gray-600">·</div>
+                                            <div>
+                                                {% for tag in page.settings.tags %}
+                                                    <div class="text-xs inline-flex font-medium bg-green-500/20 text-green-700 rounded-full text-center px-2.5 py-1"
+                                                        style="
+                                                        background-color: hsl({{ tag.color_hls[0] }}, {{ tag.color_hls[1] }}%, 90%);
+                                                        color: {{ tag.color }};
+                                                        "
+                                                    >{{ tag.name }}</div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <div class="space-y-3">
+                                        {{ page.settings.content }}
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+
+                <!-- Pagination -->
+                <div class="xl:pl-32 xl:-translate-x-16 mt-6">
+                    {% render 'paginate', paginate: paginate %}
+                </div>
+            {% endpaginate_tag %}
+
+        </div>
+    </div>
+</main>
+
+{% schema %}
+    {
+        "name": "Changelog",
+        "description": "Log/Roadmap类时间序列栏目",
+        "thumb_url": "images/theme/changelog.png",
+        "sub_page_templates": ["page"],
+        "settings": [
+            {
+                "id": "icon",
+                "type": "image_picker",
+                "ratio": "1:1",
+                "width": 100,
+                "label": "图标"
+            },
+            {
+                "id": "tags",
+                "type": "tag_picker",
+                "multiple": true,
+                "label": "标签"
+            },
+            {
+                "id": "description",
+                "type": "textarea",
+                "label": "描述"
+            }
+        ]
+    }
+{% endschema %}

@@ -1,31 +1,16 @@
-
-<div class="mx-auto max-w-screen-lg px-3 py-6">
-  <h1 class="text-center text-3xl font-bold">{{ page.settings.title }}</h1>
-  <div class="mt-2 text-center text-sm text-gray-400">By <!-- -->Emma<!-- --> on<!-- --> <!-- -->Feb 1, 2020</div>
-  <div class="mx-auto mt-5 max-w-prose">
-    <div class="aspect-w-3 aspect-h-2">
-      {% assign random_number = "now" | date: "%N" | modulo: 4 | plus: 1 %}
-      {% assign default_thumb_url = 'images/image-post' | append: random_number | append: '.jpg' |  asset_url %}
-      <img class="h-full w-full rounded-lg object-cover object-center" src="{{ page.settings.thumb_url |  default: default_thumb_url }}" alt="{{ page.link_text }}" loading="lazy" />
-    </div>
-    <div class="prose lg:prose-lg mt-8 prose-img:rounded-lg">
-
-      <div class="ml-3 flex gap-2">
-        {% for tag in page.settings.tags %}
-          <a href="{{ tag.path }}" class="rounded-md px-2 py-1 text-xs font-semibold bg-info text-white"
-            style="
-            background-color: hsl({{ tag.color_hls[0] }}, {{ tag.color_hls[1] }}%, 90%);
-            color: {{ tag.color }};">
-            {{ tag.name }}
-          </a>
-        {% endfor %}
-      </div>
-      <div class="border-l border-4 border-primary bg-slate-100 p-2 lg:p-4 my-2 lg:my-4">{{ page.settings.description }}</div>
+<article class="w-full px-4 pt-6 pb-8 space-y-6 bg-white rounded-md shadow-sm shadow-gray-200 lg:pb-10 lg:pt-10 lg:px-6">
+  <div class="max-w-screen-md mx-auto">
+    <h1 class="text-2xl font-semibold text-center text-gray-800 lg:text-4xl">{{ page.settings.title }}</h1>
+    <blockquote class="mt-2 text-sm bg-slate-100 p-2 border-slate-300 border-l-2 text-gray-700">
+      {{ page.settings.description }}
+    </blockquote>
+  </div>
+  <div class="max-w-screen-sm mx-auto">
+    <div class="prose sm:prose-base lg:prose-base focus:outline-none dark:prose-invert">
       {{ page.settings.content }}
     </div>
   </div>
-</div>
-
+</article>
 
 <!--/ article-->
 {% schema %}
