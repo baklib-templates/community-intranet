@@ -1,6 +1,6 @@
-{% set_meta_title '如何使用Preline UI' %}
-{% set_meta_description '如果通用Baklib CMS 构建一套基于Preline UI 的信息系统' %}
-{% set_meta_keywords 'Baklib, Preline' %}
+{% set_meta_title '如何使用Intranet' %}
+{% set_meta_description '如果通用Baklib CMS 的内部信息系统' %}
+{% set_meta_keywords 'Baklib, Intranet' %}
 
 <div class="mx-auto max-w-screen-lg px-3 py-6">
   <div class="flex items-start">
@@ -9,7 +9,7 @@
       <h3>1. 添加模板到组织中</h3>
       <p>Personal Blog 模板存放着gitlab上的，你可以进入Baklib 组织模板管理中，添加到组织模板。</p>
       <pre style="white-space: pre; overflow-wrap: break-word; overflow-x: auto; font-family: monospace;">
-git@gitlab.com:baklib/themes/personal-blog.git</pre>
+git@gitlab.com:baklib/themes/intranet.git</pre>
       <h3>2. 通过模板创建站点</h3>
       <p>选择“添加新应用”，在模板市场中找到以上的【Personal Blog】模板，创建好一个网站。</p>
       <p>1) 在应用管理界面填充相关预定义信息。</p>
@@ -27,33 +27,59 @@ git@gitlab.com:baklib/themes/personal-blog.git</pre>
       <p class="mt-1 text-gray-600 dark:text-neutral-400">
         Personal Blog模板界面比较简单，只有一个首页、一个列表页和一个详情页。
       </p>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div class="aspect-w-3 aspect-h-2">
-          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/index-dark.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <img class="w-full" src="{{ 'images/theme/changelog.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>changelog.png</p>
         </div>
         <div class="aspect-w-3 aspect-h-2">
-          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/index.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <img class="w-full" src="{{ 'images/theme/channel.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>channel.png</p>
         </div>
         <div class="aspect-w-3 aspect-h-2">
-          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/list-dark.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <img class="w-full" src="{{ 'images/theme/events.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>events.png</p>
         </div>
         <div class="aspect-w-3 aspect-h-2">
-          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/list.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <img class="w-full" src="{{ 'images/theme/faqs.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>faqs.png</p>
         </div>
         <div class="aspect-w-3 aspect-h-2">
-          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/page-dark.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <img class="w-full" src="{{ 'images/theme/feed.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>feed.png</p>
         </div>
         <div class="aspect-w-3 aspect-h-2">
-          <img class="h-full w-full object-cover object-center" src="{{ 'images/theme/page.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <img class="w-full" src="{{ 'images/theme/forum-post.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>forum-post.png</p>
         </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/forum.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>forum.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/index.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>index.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/knowledge-base.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>knowledge-base.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/page.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>page.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/products.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>products.png</p>
+        </div>
+        <div class="aspect-w-3 aspect-h-2">
+          <img class="w-full" src="{{ 'images/theme/roadmap.png' | asset_url }}" alt="Baklib" loading="lazy" />
+          <p>roadmap.png</p>
+        </div>
+
       </div>
 
-      <h2>什么是 Baklib 站点模板?</h2>
-      <p class="mt-1 text-gray-600 dark:text-neutral-400">
-        Baklib 是一个基础云平台，开箱即用，通过Baklib可以帮助你省掉购买服务器、存储、带宽，配置域名，SEO，部署和运维等一系列繁琐的基础工作；
-        同时，Baklib通过模板创建了网站的基本架构，你只需要把精力放在页面设计、内容添加等创意性的工作上，而不用关心更多的技术细节。
-      </p>
-      <p><a href="https://www.baklib.cn">去官网了解更多。</a></p>
+
     </div>
   </div>
 </div>

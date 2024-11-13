@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
 module.exports = {
   content: [
     "./layout/**/*.liquid",
@@ -12,6 +11,9 @@ module.exports = {
     extend: {
       colors: () => {
         return {
+          slate: {
+            150: "#f7f7f7"
+          },
           ...["primary", "secondary", "accent", "info", "success", "warning"].reduce((map, name) => {
             return {
               ...map,
@@ -41,11 +43,14 @@ module.exports = {
             }, {})
           }
         }
+      },
+      spacing: {
+        4.5: "1.125rem",
+        5.5: "1.375rem",
+        18: "4.5rem",
       }
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require('@tailwindcss/aspect-ratio'),
-  ]
+  plugins: [require('@tailwindcss/typography')],
 }
+

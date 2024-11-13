@@ -1,21 +1,21 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "intranet_center",
-    "theme_label": "t:theme_label",
+    "theme_name": "intranet",
+    "theme_label": "Intranet内联网门户",
+    "theme_description": "组织内联网信息聚合共享中心",
     "theme_version": "1.0.0",
-    "theme_scope": "cms",
+    "theme_scope": "community",
     "theme_author": "Baklib",
-    "theme_description": "t:theme_description",
-    "theme_documentation_url": "https://help.baklib.cn/themes/intranet-center",
-    "theme_support_url": "https://help.baklib.cn/themes/intranet-center/settings",
+    "theme_documentation_url": "https://help.baklib.cn/themes/intranet",
+    "theme_support_url": "https://help.baklib.cn/themes/intranet/settings",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
-      "images/theme/intranet-center.png",
-      "images/theme/knowledge-base.png",
-      "images/theme/faqs.png",
+      "images/theme/index.png",
+      "images/theme/channel.png",
+      "images/theme/events.png",
       "images/theme/forum.png",
-      "images/theme/channel.png"
+      "images/theme/feed.png"
     ],
     "theme_languages": [
       {
@@ -25,14 +25,6 @@
       {
         "name": "English",
         "value": "en-US"
-      },
-      {
-        "name": "Germany",
-        "value": "de"
-      },
-      {
-        "name": "France",
-        "value": "fr"
       }
     ],
     "recommendations": {
@@ -40,7 +32,7 @@
         "fashion": {
           "name": "时尚",
           "colors": {
-            "--theme-color-primary": "#03A9F4",
+            "--theme-color-primary": "#3D50E0",
             "--theme-color-secondary": "#E91E63",
             "--theme-color-accent": "#AAAAAA",
             "--theme-color-info": "#2196F3",
@@ -62,43 +54,53 @@
       },
       "initial_pages": {
         "default": {
-          "name": "Intranet Center",
+          "name": "Intranet",
           "default": true,
           "pages": [
             {
-              "name": "Channel",
+              "name": "主题栏目",
               "slug": "channel",
               "template": "channel"
             },
             {
-              "name": "Knowledge Base",
-              "slug": "knowledge",
-              "template": "kb"
-            },
-            {
-              "name": "Changelog",
+              "name": "更新日志",
               "slug": "changelog",
               "template": "changelog"
             },
             {
-              "name": "Notifications",
+              "name": "通知公告",
               "slug": "notifications",
               "template": "changelog"
             },
             {
-              "name": "faqs",
+              "name": "活动事件",
+              "slug": "events",
+              "template": "events"
+            },
+            {
+              "name": "FAQs",
               "slug": "faqs",
               "template": "faqs"
             },
             {
-              "name": "forum",
+              "name": "讨论社区",
               "slug": "forum",
               "template": "forum"
             },
             {
-              "name": "Events",
-              "slug": "events",
-              "template": "events"
+              "name": "知识库",
+              "slug": "kb",
+              "template": "kb"
+            },
+            {
+              "name": "案例库",
+              "slug": "projects",
+              "template": "products"
+            },
+            {
+              "name": "产品库",
+              "slug": "products",
+              "template": "products"
             }
           ]
         }
@@ -109,56 +111,96 @@
     "name": "t:settings_schema.generic.name",
     "settings": [
       {
-        "id": "is_open_intro_guide",
+        "id": "is_allow_published",
         "type": "checkbox",
-        "default": false,
-        "label": "开启Intro Step Guide 指引教程",
-        "info": "Demo项目使用，正式项目不需要开启"
+        "label": "是否开启先发后审",
+        "info": "先发后审：前台提交即发布；先审后发：前台提交，后台审核后发布。",
+        "default": false
       },
       {
-        "id": "org_url",
-        "label": "组织域名",
+        "id": "feedback_useful_type",
         "type": "text",
-        "placeholder": "https://tanmer.baklib.com"
+        "label": "t:settings_schema.generic.settings.feedback_useful_type.label",
+        "placeholder": "t:settings_schema.generic.settings.feedback_useful_type.placeholder",
+        "default": "😊"
+      },
+      {
+        "id": "logo_url",
+        "type": "image_picker",
+        "ratio": "3:1",
+        "width": 150,
+        "label": "t:settings_schema.generic.settings.logo_url.label",
+        "info": "t:settings_schema.generic.settings.logo_url.info"
+      },
+      {
+        "id": "slogan",
+        "type": "text",
+        "label": "t:settings_schema.generic.settings.slogan.label",
+        "default": "👋 What Can We Help?"
+      },
+      {
+        "id": "copyright_info",
+        "type": "text",
+        "label": "t:settings_schema.generic.settings.copyright_info.label",
+        "placeholder": "t:settings_schema.generic.settings.copyright_info.placeholder"
+      },
+      {
+        "id": "hot_tags",
+        "type": "text",
+        "label": "热门标签",
+        "info": "用英文逗号隔开"
+      },
+      {
+        "id": "is_allow_feedback",
+        "type": "checkbox",
+        "label": "t:settings_schema.generic.settings.is_allow_feedback.label",
+        "default": true
+      },
+      {
+        "id": "is_allow_header",
+        "type": "checkbox",
+        "label": "t:settings_schema.generic.settings.is_allow_header.label",
+        "default": true
+      },
+      {
+        "id": "is_allow_footer",
+        "type": "checkbox",
+        "label": "t:settings_schema.generic.settings.is_allow_footer.label",
+        "default": true
       }
     ]
   },
   {
-    "name": "t:settings_schema.generic.head_title",
+    "name": "t:settings_schema.nav.nav_title",
+    "settings": [
+      {
+        "id": "header_menu_html",
+        "type": "html",
+        "label": "t:settings_schema.nav.settings.header_menu_html.label",
+        "info": "t:settings_schema.nav.settings.header_menu_html.info",
+        "rows": 10,
+        "placeholder": "<a href='#'> title </a>"
+      },
+      {
+        "id": "footer_menu_html",
+        "type": "html",
+        "label": "t:settings_schema.nav.settings.footer_menu_html.label",
+        "info": "t:settings_schema.nav.settings.footer_menu_html.info",
+        "rows": 10,
+        "placeholder": "<a href='#'> title </a>"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.nav.head_title",
     "settings": [
       {
         "id": "head_html",
         "type": "html",
-        "label": "t:settings_schema.generic.settings.head_html.label",
-        "info": "t:settings_schema.generic.settings.head_html.info",
+        "label": "t:settings_schema.nav.settings.head_html.label",
+        "info": "t:settings_schema.nav.settings.head_html.info",
         "rows": 10,
-        "placeholder": "t:settings_schema.generic.settings.head_html.placeholder"
-      }
-    ]
-  },
-  {
-    "name": "功能定制块",
-    "settings": [
-      {
-        "id": "features_one",
-        "type": "html",
-        "label": "Features One",
-        "rows": 10,
-        "placeholder": "some html code"
-      },
-      {
-        "id": "features_two",
-        "type": "html",
-        "label": "Features Two",
-        "rows": 10,
-        "placeholder": "some html code"
-      },
-      {
-        "id": "features_three",
-        "type": "html",
-        "label": "Features Three",
-        "rows": 10,
-        "placeholder": "some html code"
+        "placeholder": "t:settings_schema.nav.settings.head_html.placeholder"
       }
     ]
   }

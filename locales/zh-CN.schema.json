@@ -1,49 +1,67 @@
 {
   "settings_schema": {
     "generic": {
-      "name": "站点基本信息设置",
-      "header_name": "页头页尾导航菜单",
-      "head_title": "Head HTML 配置",
+      "name": "主题默认设置",
       "settings": {
-        "hero_image_url": {
-          "label": "首页背景大图",
-          "info": "用于部分主题首页的背景横幅，建议1900*600px的深色图片"
+        "logo_url": {
+          "label": "Logo图标",
+          "info": "建议 3:1 尺寸的PNG/SVG格式图片"
         },
-        "description": {
-          "label": "站点描述"
-        },
-        "hot_tags": {
-            "label": "热搜关键词（请用英文逗号“,”分隔）"
+        "slogan": {
+          "label": "一句话描述"
         },
         "copyright_info": {
-          "label": "备案/版权信息",
-          "default": "蜀ICP备15035023号"
+          "label": "版权备案信息",
+          "placeholder": "蜀ICP备15035023号"
         },
+        "is_allow_feedback":{
+          "label": "是否展示用户反馈"
+        },
+        "is_allow_header":{
+          "label": "是否展示页头Header部分"
+        },
+        "is_allow_footer":{
+          "label": "是否展示页脚Footer部分"
+        }
+      }
+    },
+    "nav": {
+      "nav_title": "导航菜单",
+      "head_title": "Head配置",
+      "settings": {
         "header_menu_html": {
-          "label": "Header页头导航菜单"
+          "label": "Header页头导航菜单",
+          "info": "支持HTML标签和TailwindCss样式代码"
         },
         "footer_menu_html": {
-          "label": "Footer页尾导航菜单"
+          "label": "Footer页尾导航菜单",
+          "info": "支持HTML标签和TailwindCss样式代码"
         },
         "head_html": {
-          "label": "Head Meta HTML代码",
+          "label": "Head HTML代码",
           "info": "这部分内容会植入到站点的<head>标签内，请使用标准的 HTML 格式",
-          "placeholder": "<meta name='author' content='Baklib' />"
+          "placeholder": "如引用外部 css/js 文件，添加 meta 标签等，如 <meta name='baidu_verification' content='CdOTMO2h2' />"
         }
       }
     },
     "page": {
-      "name": "页面",
-      "description": "文档内容页面",
+      "name": "文章页面",
       "settings": {
         "title":{
-          "label": "标题"
+          "label": "标题",
+          "info": "显示在正文上方的文章标题"
         },
-        "content":{
-          "label": "内容"
+        "description":{
+          "label": "摘要"
         },
         "tags":{
           "label": "标签"
+        },
+        "thumb_image_url":{
+          "label": "封面图"
+        },
+        "content":{
+          "label": "页面内容"
         }
       }
     }

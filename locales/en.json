@@ -1,31 +1,26 @@
 {
-  "theme_label": "Intranet Center",
-  "theme_description": "Intranet Center template, used to build intranet knowledge base center",
+  "theme_label": "Release Guide",
+  "theme_description": "Small document content management, used to build what's news, guides, FAQs, Releases, Blog, etc.",
   "generic": {
-    "close": "Close",
+    "search": "👋 What Can We Help?",
+    "search_from": "All search results from: ",
+    "all": "All",
+    "popular": "Popular",
+    "feedback": "Feedback?",
+    "tags": "Tags",
+    "home": "Home",
     "back": "Back",
     "submit": "Submit",
-    "search": "Search",
-    "popular_search": "Popular Searching: ",
-    "index": "Index",
-    "articles": "Articles",
-    "read_more": "Read More",
+    "empty": "Content is Empty",
+    "published_at": "Published at",
     "404": "404 not found",
     "403": "403 No access permission",
-    "empty": "content is empty",
     "copyright": "All rights reserved",
-    "hot_pages": "Hot visit articles",
-    "recent_pages": "Recent articles",
-    "tags": "Tags",
-    "in_page_nav": "Inside Page navigation",
-    "feedback": "Feedback",
-    "feedback_commit": "Content",
-    "feedback_placeholder": "Please enter your feedback",
-    "prev_page": "Previous",
-    "next_page": "Next"
+    "current_version": "Current Version"
   },
   "placeholders": {
     "search": "Searching...",
+    "input_feedback": "Send feedback",
     "input_password": "Please input your password"
   },
   "buttons": {
@@ -35,5 +30,13 @@
   },
   "prompts": {
     "page_restricted": "This page can only be accessed with authentication"
+  },
+  "settings_schema": {
+    "section_brand": "Brand Info",
+    "logo_url_label": "Logo",
+    "logo_url_info": "Recommend 150x60px size PNG/SVG",
+    "slogan_label": "Site Slogan",
+    "copyright_info_label": "Copyright info",
+    "copyright_info_placeholder": "Tanmer Inc.All right Served."
   }
 }

@@ -1,3 +1,8 @@
+{% assign channels = site.pages['/'].children_in_nav_menu %}
+{% assign default_icon = 'images/folder.svg' |  asset_url %}
+{% assign logo = 'images/logo.png' | asset_url %}
+{% assign hot_tags = site.settings.hot_tags | split: ',' %}
+
 <aside
   x-ref="sidebar"
   class="flex flex-wrap flex-shrink min-w-fit"
@@ -26,7 +31,7 @@
     <div
       x-data="{ hoverMenu: false }"
       class="top-0 z-20 hidden w-16 h-full text-gray-400 transition-transform duration-500 bg-gray-800 sm:block "
-      :class="[(smallMenu ? 'translate-x-0 relative md:relative' : '-translate-x-16 absolute w-0 overflow-hidden') ]"
+      :class="[(smallMenu ? 'translate-x-0 relative md:relative' : '-translate-x-16 absolute w-0 overflow-y-auto') ]"
       x-cloak
     >
       <div class="flex justify-between px-4 py-3 bg-primary bg-opacity-90">
@@ -40,21 +45,23 @@
       <nav class="py-4">
         <ul>
           <li>
-            <a href="#" class="flex justify-center w-full px-4 py-2 hover:bg-gray-900 group">
+            <a href="/" class="flex justify-center w-full px-4 py-2 hover:bg-gray-900 group">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
-              <span class="sr-only">Dashboards</span>
+              <span class="sr-only">控制台</span>
             </a>
           </li>
-          <li>
-            <a href="#" class="flex justify-center w-full px-4 py-2 hover:bg-gray-900 group">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-              </svg>
-              <span class="sr-only">Elements</span>
-            </a>
-          </li>
+          {% for channel in channels %}
+            <li>
+              <a href="{{ channel.path }}" class="flex justify-center w-full px-4 py-2 hover:bg-gray-900 group">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 w-4.5 h-4.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+                </svg>
+                <span class="sr-only">{{ channel.link_text }}</span>
+              </a>
+            </li>
+          {% endfor %}
           <li x-data="{ isOpen: false }" class="relative" @mouseleave.debounce.200ms="isOpen = false">
             <button class="flex justify-center w-full px-4 py-2 hover:bg-gray-900 group" @mouseenter="isOpen = true">
               <svg xmlns="http://www.w3.org/2000/svg" :class="isInUrl('/pages/') ? 'text-secondary' : ''" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -180,7 +187,7 @@
 
     <!-- large variant -->
     <div
-      class="z-20 h-full overflow-hidden text-white transition-all duration-500 bg-primary opacity-0"
+      class="z-20 h-full overflow-y-auto text-white transition-all duration-500 bg-primary opacity-0"
       :class="[
         ( (smallMenu && !mobileMenu) ? '-translate-x-64  sm:relative w-0 ' : 'sm:relative translate-x-0 sm:opacity-100 '),
         ( (mobileMenu && !smallMenu) ? 'fixed translate-x-0 opacity-100 w-64 ' : ''),
@@ -188,7 +195,6 @@
       ]" >
       <div class="flex justify-between px-4 py-3 bg-primary bg-opacity-90">
         <a href="/" class="flex items-center justify-center lg:justify-start">
-          {% assign logo = 'images/logo.png' | asset_url %}
           <img src="{{ site.favicon_url | default: logo }}" alt="logo" class="inline-block h-4">
           <span class="ml-2 text-xl font-bold text-white dark:text-slate-200">{{ site.name }}</span>
         </a>
@@ -209,14 +215,12 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
-            <span class="transition-colors duration-100 group-hover:text-white">Dashboards</span>
+            <span class="transition-colors duration-100 group-hover:text-white">控制台</span>
           </a>
-          {%  assign channels = site.pages['/'].children_in_nav_menu %}
+
           {% for channel in channels %}
             <a href="{{ channel.path }}" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
-              <svg xmlns="http://www.w3.org/2000/svg"  class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-              </svg>
+              <img src="{{ channel.settings.icon | default: default_icon }}" class="size-4.5 w-4.5 h-4.5 text-white"/>
               <span class="transition-colors duration-100 group-hover:text-white">{{ channel.link_text }}</span>
             </a>
           {% endfor %}
@@ -278,6 +282,21 @@
                 </span>
               </a>
             </li>
+          </ul>
+          <span class="block px-4 mt-4 mb-2 text-xs font-semibold tracking-widest text-gray-400 uppercase">热门标签</span>
+          <ul>
+            {% for tag in hot_tags %}
+              <li>
+                <a href="{{site.index_path}}-/tags/{{ tag }}" class="flex items-center justify-between px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <span class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"class="w-4.5 h-4.5 transition-colors duration-300 group-hover:text-secondary">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5-3.9 19.5m-2.1-19.5-3.9 19.5" />
+                    </svg>
+                    <span class="transition-colors duration-100 group-hover:text-white">{{ tag }}</span>
+                  </span>
+                </a>
+              </li>
+            {% endfor %}
           </ul>
         </nav>
       </div>
