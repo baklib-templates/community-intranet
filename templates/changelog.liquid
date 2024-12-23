@@ -17,10 +17,6 @@
             </div>
 
             <!-- Right: Actions -->
-            <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-                <!-- Add entry button -->
-                <a href="#a" class="btn bg-primary text-gray-100 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-white">后台管理</a>
-            </div>
 
         </div>
 
@@ -28,15 +24,16 @@
             <div class="max-w-3xl m-auto">
 
                 <!-- Filters -->
-                <div class="xl:pl-32 xl:-translate-x-16 mb-2">
+                <div class="mb-5">
                     <ul class="flex flex-wrap -m-1">
                         <li class="m-1">
-                            <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-primary dark:bg-gray-100 text-white dark:text-gray-800 transition">显示所有</button>
+                            <a href="{{ page.path }}" class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-800 transition">
+                                {{ 'generic.all' | t }}</a>
                         </li>
                         {% for tag in page.settings.tags %}
                             <li class="m-1">
-                                <a href="{{ page.path | append: '?tag=' |  append: tag.name }}"
-                                class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-gray-300 dark:border-gray-700/60 hover:border-gray-600 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition">{{ tag.name }}</a>
+                                <a href="{{ page.path |  append: '?tag=' |  append: tag.name }}"
+                                    class="{% if tag.name == params['tag'] %} underline bg-primary text-white {% endif %} inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-gray-200 dark:border-gray-700/60 hover:border-gray-300 dark:hover:border-gray-600 shadow-sm dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition">{{ tag.name }}</a>
                             </li>
                         {% endfor %}
                     </ul>
@@ -52,7 +49,7 @@
                                 <article class="pt-6">
                                     <div class="xl:flex">
                                         <div class="w-32 shrink-0">
-                                            <div class="text-xs font-semibold uppercase text-gray-400 dark:text-gray-500 xl:leading-8">{{ item.published_at | date: "%Y-%m-%d" }}</div>
+                                            <div class="text-lg font-semibold uppercase text-gray-400 dark:text-gray-500 xl:leading-8">{{ item.published_at | date: "%Y-%m-%d" }}</div>
                                         </div>
                                         <div class="grow border-b border-gray-200 dark:border-gray-700/60">
                                             <header>

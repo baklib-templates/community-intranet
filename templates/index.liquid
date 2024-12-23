@@ -18,9 +18,9 @@
                 </svg>
             {% endif %}
           </div>
-          <h2 class="h3 mb-2"><a href="{{ channel.path }}">{{ channel.link_text }}</a></h2>
+          <h2 class="h4 mb-2 font-semibold"><a href="{{ channel.path }}">{{ channel.link_text }}</a></h2>
           <div class="my-2 line-clamp-1">&nbsp;{{ channel.settings.description |  truncate: 32 }}</div>
-          <div class="mb-6">{{ channel.pages | size }} 篇文章</div>
+          <div class="mb-6">{{ channel.pages | size }} {{ 'generic.articles' | t }}</div>
         </div>
       </div>
     {% endfor %}

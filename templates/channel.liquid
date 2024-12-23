@@ -10,15 +10,7 @@
     <!-- Profile background -->
     <div class="relative h-56 bg-gray-200 dark:bg-gray-900">
       <img class="object-cover h-full w-full" src="{{ page.settings.thumb_image_url |  default: default_thumb }}" alt="Channel background">
-      <div class="flex absolute top-0 left-8">
-        <div class="py-4 mx-auto truncate max-w-7xl">
-          {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
-        </div>
-      </div>
     </div>
-
-    
-
     <!-- Header -->
     <header class="relative z-10 text-center bg-white/30 dark:bg-gray-800/30 pb-6 border-b border-gray-200 dark:border-gray-700/60">
       <div class="px-4 sm:px-6 lg:px-8 w-full">
@@ -32,7 +24,7 @@
 
           <!-- Company name and info -->
           <div class="mb-4">
-            <h2 class="text-2xl text-gray-800 dark:text-gray-100 font-bold mb-2">{{ page.link_text }}</h2>
+            <h2 class="h2 text-gray-800 dark:text-gray-100 font-bold mb-2">{{ page.link_text }}</h2>
             <p>{{ page.settings.description }}</p>
           </div>
           <!-- Meta -->
@@ -115,9 +107,11 @@
 "sub_page_templates": ["channel", "page"],
 "settings": [
     {
-      "id": "description",
-      "type": "textarea",
-      "label": "描述"
+      "id": "icon",
+      "type": "image_picker",
+      "ratio": "1:1",
+      "width": 100,
+      "label": "图标"
     },
     {
       "id": "tags",
@@ -133,11 +127,9 @@
       "label": "主页封面"
     },
     {
-        "id": "icon",
-        "type": "image_picker",
-        "ratio": "1:1",
-        "width": 100,
-        "label": "图标"
+      "id": "description",
+      "type": "textarea",
+      "label": "描述"
     }
   ]
 }

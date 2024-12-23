@@ -2,8 +2,8 @@
   {
     "name": "theme_info",
     "theme_name": "intranet",
-    "theme_label": "Intranet内联网门户",
-    "theme_description": "组织内联网信息聚合共享中心",
+    "theme_label": "t:theme_label",
+    "theme_description": "t:theme_description",
     "theme_version": "1.0.0",
     "theme_scope": "community",
     "theme_author": "Baklib",
@@ -11,6 +11,7 @@
     "theme_support_url": "https://help.baklib.cn/themes/intranet/settings",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
+      "images/theme/intranet.png",
       "images/theme/index.png",
       "images/theme/channel.png",
       "images/theme/events.png",
@@ -58,22 +59,17 @@
           "default": true,
           "pages": [
             {
-              "name": "主题栏目",
+              "name": "Channel",
               "slug": "channel",
               "template": "channel"
             },
             {
-              "name": "更新日志",
-              "slug": "changelog",
-              "template": "changelog"
-            },
-            {
-              "name": "通知公告",
+              "name": "Notifications",
               "slug": "notifications",
               "template": "changelog"
             },
             {
-              "name": "活动事件",
+              "name": "Events",
               "slug": "events",
               "template": "events"
             },
@@ -83,22 +79,12 @@
               "template": "faqs"
             },
             {
-              "name": "讨论社区",
+              "name": "Forum",
               "slug": "forum",
               "template": "forum"
             },
             {
-              "name": "知识库",
-              "slug": "kb",
-              "template": "kb"
-            },
-            {
-              "name": "案例库",
-              "slug": "projects",
-              "template": "products"
-            },
-            {
-              "name": "产品库",
+              "name": "Products",
               "slug": "products",
               "template": "products"
             }
@@ -131,6 +117,14 @@
         "width": 150,
         "label": "t:settings_schema.generic.settings.logo_url.label",
         "info": "t:settings_schema.generic.settings.logo_url.info"
+      },
+      {
+        "id": "default_avatar",
+        "type": "image_picker",
+        "ratio": "4:4",
+        "width": 100,
+        "label": "默认头像",
+        "info": "新注册用户未设置头像之前，显示该默认头像"
       },
       {
         "id": "slogan",

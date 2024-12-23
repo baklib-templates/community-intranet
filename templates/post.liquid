@@ -20,7 +20,7 @@
           <div>
             <div class="flex items-center space-x-2 mb-4">
               {% if site.settings.is_allow_author %}
-                <img src="{{ page.author.avatar_url | default: default_avatar_url }}" class="w-8 h-8 rounded-full" />
+                <img src="{{ page.author.avatar_url | default: site.settings.default_avatar }}" class="w-8 h-8 rounded-full" />
               {% endif %}
               <div>
                 {% if site.settings.is_allow_author %}
@@ -67,6 +67,53 @@
           <!-- Sub Post Section -->
           {% render 'sub_page_list', page: page %}
         </div>
+        <!-- comments -->
+        <section class="max-w-screen-sm mx-auto">
+          {% if page.author.id == current_user.member_id %}
+            <div class="my-4">
+              <div class="relative p-5 border rounded-md bg-slate-200 dark:bg-slate-800 border-slate-600">
+                <div class="items-center space-y-3 sm:flex sm:space-y-0 sm:space-x-5">
+                    <a href="/s/edit?page_path={{ page.full_slug }}" class="btn">
+                      <span>再次编辑</span>
+                    </a>
+                    {% form_tag 'delete_page', page %}
+                      <button class="btn btn-ghost"> 删除 </button>
+                    {% endform_tag %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% unless page.published_at %}
+            <p class="mt-4 text-sm font-bold text-info"> 内容正在审核，审核通过后其他人可查看 ! </p>
+          {% endunless %}
+          
+          <div class="my-4">
+            {% render 'reply_page_form', target: page %}
+          </div>
+
+          <!-- Comments list -->
+          <div data-controller="load_more">
+            <h4 class="mb-2 font-bold "> {{ page.comments | size }} 条评论 </h4>
+            <!-- Comments (1st level) -->
+            {% assign answers = page.comments | roots  %}
+            <ul id="page_{{ page.id }}_replies_list" data-load_more-target="container">
+              {% paginate_tag answers, per: 4 %}
+                {% for reply in answers %}
+                  {% render 'reply', reply: reply %}
+                {% endfor %}
+              {% endpaginate_tag %}
+            </ul>
+            {{ paginate.next.page  }}
+            {% if paginate.next_page %}
+              <button id="load_more" data-action="click->load_more#loadMore" data-load_more-url-value="/s/replies?page_path={{ page.full_slug }}&_page={{ paginate.next_page }}"
+              data-load_more-target="button"
+              >
+                查看更多回复
+              </button>
+            {% endif %}
+          </div>
+        </section>
       </main>
       <!-- main content -->
 
@@ -84,6 +131,12 @@
     "sub_page_templates": ["post"],
     "settings": [
         {
+          "id": "tags",
+          "type": "tag_picker",
+          "multiple": true,
+          "label": "标签"
+        },
+        {
           "id": "title",
           "type": "text",
           "label": "标题"
@@ -92,13 +145,11 @@
           "id": "content",
           "type": "richtext",
           "label": "页面内容"
-        },
-        {
-          "id": "tags",
-          "type": "tag_picker",
-          "multiple": true,
-          "label": "标签"
         }
-    ]
+    ],
+    "user_creatable": true,
+    "user_editable": true,
+    "user_deletable": true,
+    "user_permitted_attributes": ["title", "content"]
   }
 {% endschema %}

@@ -2,16 +2,7 @@
 
 <main class="grow relative">
     <!-- mask bg-->
-    <div class="absolute top-20 left-0 z-50">
-        <div class="relative mx-auto w-screen h-screen bg-slate-300 opacity-40"></div>
-        <div class="flex justify-center absolute inset-0">
-            <div class="w-96 flex flex-col justify-center p-8 bg-slate-800 opacity-80 text-white border border-slate-800">
-                <img src="{{'images/thumb.svg' | asset_url }}" class="w-44" />
-                <h1 class="text-4xl">Demo 数据演示</h1>
-                <p>请到后台添加页面</p>
-            </div>
-        </div>
-    </div>
+    {% render 'mask_bg' %}
     <!-- content -->
     <div class="relative px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
 

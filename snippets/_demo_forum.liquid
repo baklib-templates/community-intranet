@@ -1,15 +1,6 @@
 <main class="grow relative">
     <!-- mask bg-->
-    <div class="absolute top-20 left-0 z-50">
-        <div class="relative mx-auto w-screen h-screen bg-slate-300 opacity-40"></div>
-        <div class="flex justify-center absolute inset-0">
-            <div class="w-96 flex flex-col justify-center opacity-80 p-8 bg-slate-800 text-white border border-slate-800">
-                <img src="{{'images/thumb.svg' | asset_url }}" class="w-44" />
-                <h1 class="text-4xl">Demo 数据演示</h1>
-                <p>请到后台添加页面</p>
-            </div>
-        </div>
-    </div>
+    {% render 'mask_bg' %}
     <!-- content -->
     <div class="px-4 sm:px-6 lg:px-8 py-8 md:py-0 w-full max-w-9xl mx-auto">
 
@@ -54,13 +45,13 @@
                                         <li class="mr-0.5 md:mr-0 md:mb-0.5">
                                             <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap bg-white dark:bg-gray-800"
                                                 href="#0">
-                                                <svg class="shrink-0 fill-current text-violet-500 mr-2" width="16"
+                                                <svg class="shrink-0 fill-current text-primary mr-2" width="16"
                                                     height="16" viewBox="0 0 16 16">
                                                     <path
                                                         d="M4.904 10.114a.98.98 0 0 1 0-1.961h5.886a.98.98 0 0 1 0 1.961H4.904ZM2.863 5.166a1.962 1.962 0 0 0-.901 1.651v5.26c0 1.083.878 1.961 1.961 1.961h7.85a1.962 1.962 0 0 0 1.961-1.961v-5.26c0-.668-.34-1.29-.901-1.65L7.848 1.961 2.863 5.166ZM6.786.312a1.962 1.962 0 0 1 2.123 0l4.985 3.204a3.923 3.923 0 0 1 1.802 3.301v5.26A3.923 3.923 0 0 1 11.772 16H3.923A3.923 3.923 0 0 1 0 12.077v-5.26c0-1.335.679-2.579 1.802-3.3L6.786.311Z">
                                                     </path>
                                                 </svg>
-                                                <span class="text-sm font-medium text-violet-500">Home</span>
+                                                <span class="text-sm font-medium text-primary">Home</span>
                                             </a>
                                         </li>
                                         <li class="mr-0.5 md:mr-0 md:mb-0.5">
@@ -165,11 +156,11 @@
                         <div class="mb-4">
                             <div class="w-full flex flex-wrap -space-x-px">
                                 <button
-                                    class="btn grow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700/60 text-violet-500 rounded-none first:rounded-l-lg last:rounded-r-lg">Popular</button>
+                                    class="btn grow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700/60 text-white rounded-none first:rounded-l-lg last:rounded-r-lg">Popular</button>
                                 <button
-                                    class="btn grow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700/60 hover:bg-gray-50 dark:hover:bg-gray-700/20 text-gray-600 dark:text-gray-300 rounded-none first:rounded-l-lg last:rounded-r-lg">Newest</button>
+                                    class="btn grow !bg-secondary dark:bg-gray-800 border-gray-200 dark:border-gray-700/60 text-white hover:bg-gray-50 dark:hover:bg-gray-700/20 dark:text-gray-300 rounded-none first:rounded-l-lg last:rounded-r-lg">Newest</button>
                                 <button
-                                    class="btn grow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700/60 hover:bg-gray-50 dark:hover:bg-gray-700/20 text-gray-600 dark:text-gray-300 rounded-none first:rounded-l-lg last:rounded-r-lg">Following</button>
+                                    class="btn grow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700/60 text-white hover:bg-gray-50 dark:hover:bg-gray-700/20 dark:text-gray-300 rounded-none first:rounded-l-lg last:rounded-r-lg">Following</button>
                             </div>
                         </div>
 
@@ -194,7 +185,7 @@
                                         <footer class="flex flex-wrap text-sm">
                                             <div
                                                 class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                <a class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                     href="#0">
                                                     <div class="flex items-center">
                                                         <svg class="mr-2 fill-current" width="16" height="16"
@@ -250,7 +241,7 @@
                                         <footer class="flex flex-wrap text-sm">
                                             <div
                                                 class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                <a class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                     href="#0">ekuplu89</a>
                                             </div>
                                             <div
@@ -296,7 +287,7 @@
                                         <footer class="flex flex-wrap text-sm">
                                             <div
                                                 class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                <a class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                     href="#0">katemerlu</a>
                                             </div>
                                             <div
@@ -323,98 +314,6 @@
                                 </div>
                             </article>
 
-                            <!-- Post 4 -->
-                            <article class="bg-white dark:bg-gray-800 shadow-sm rounded-xl p-5">
-                                <div class="flex flex-start space-x-4">
-                                    <!-- Avatar -->
-                                    <div class="shrink-0 mt-1.5">
-                                        <img class="w-8 h-8 rounded-full" src="{{ 'images/avatar.svg' | asset_url }}"
-                                            width="32" height="32" alt="User 03">
-                                    </div>
-                                    <!-- Content -->
-                                    <div class="grow">
-                                        <!-- Title -->
-                                        <h2 class="font-semibold text-gray-800 dark:text-gray-100 mb-2">
-                                            <a href="forum-post.html">I built and sold 2 small SaaS products and quit my
-                                                job in the last two years — AMA.</a>
-                                        </h2>
-                                        <!-- Footer -->
-                                        <footer class="flex flex-wrap text-sm">
-                                            <div
-                                                class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
-                                                    href="#0">markusj</a>
-                                            </div>
-                                            <div
-                                                class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <span class="text-gray-500">2d</span>
-                                            </div>
-                                            <div
-                                                class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <span class="text-gray-500">298 Comments</span>
-                                            </div>
-                                        </footer>
-                                    </div>
-                                    <!-- Upvote button -->
-                                    <div class="shrink-0">
-                                        <button
-                                            class="text-xs font-semibold text-center h-12 w-12 border border-gray-200 dark:border-gray-700/60 hover:border-gray-300 dark:hover:border-gray-600 rounded-lg flex flex-col justify-center items-center">
-                                            <svg class="inline-flex fill-gray-400 dark:fill-gray-500 mt-1.5 mb-1.5"
-                                                width="12" height="6" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="m0 6 6-6 6 6z"></path>
-                                            </svg>
-                                            <div>217</div>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- Post 5 -->
-                            <article class="bg-white dark:bg-gray-800 shadow-sm rounded-xl p-5">
-                                <div class="flex flex-start space-x-4">
-                                    <!-- Avatar -->
-                                    <div class="shrink-0 mt-1.5">
-                                        <img class="w-8 h-8 rounded-full" src="{{ 'images/avatar.svg' | asset_url }}"
-                                            width="32" height="32" alt="User 04">
-                                    </div>
-                                    <!-- Content -->
-                                    <div class="grow">
-                                        <!-- Title -->
-                                        <h2 class="font-semibold text-gray-800 dark:text-gray-100 mb-2">
-                                            <a href="forum-post.html">Had a full-time job, bootstrapped a side project
-                                                to 7 digit ARR, now building another side project—AMA</a>
-                                        </h2>
-                                        <!-- Footer -->
-                                        <footer class="flex flex-wrap text-sm">
-                                            <div
-                                                class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
-                                                    href="#0">davidp1</a>
-                                            </div>
-                                            <div
-                                                class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <span class="text-gray-500">2d</span>
-                                            </div>
-                                            <div
-                                                class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <span class="text-gray-500">312 Comments</span>
-                                            </div>
-                                        </footer>
-                                    </div>
-                                    <!-- Upvote button -->
-                                    <div class="shrink-0">
-                                        <button
-                                            class="text-xs font-semibold text-center h-12 w-12 border border-gray-200 dark:border-gray-700/60 hover:border-gray-300 dark:hover:border-gray-600 rounded-lg flex flex-col justify-center items-center">
-                                            <svg class="inline-flex fill-gray-400 dark:fill-gray-500 mt-1.5 mb-1.5"
-                                                width="12" height="6" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="m0 6 6-6 6 6z"></path>
-                                            </svg>
-                                            <div>399</div>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-
                             <!-- Promoted post -->
                             <article class="bg-white dark:bg-gray-800 shadow-sm rounded-xl p-5">
                                 <div class="flex flex-start space-x-4">
@@ -435,7 +334,7 @@
                                         <footer class="flex flex-wrap text-sm">
                                             <div
                                                 class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                <a class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                     href="#0">crypto.io</a>
                                             </div>
                                             <div
@@ -443,52 +342,6 @@
                                                 <span class="text-gray-500 italic">Promoted</span>
                                             </div>
                                         </footer>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- Post 6 -->
-                            <article class="bg-white dark:bg-gray-800 shadow-sm rounded-xl p-5">
-                                <div class="flex flex-start space-x-4">
-                                    <!-- Avatar -->
-                                    <div class="shrink-0 mt-1.5">
-                                        <img class="w-8 h-8 rounded-full" src="{{ 'images/avatar.svg' | asset_url }}"
-                                            width="32" height="32" alt="User 05">
-                                    </div>
-                                    <!-- Content -->
-                                    <div class="grow">
-                                        <!-- Title -->
-                                        <h2 class="font-semibold text-gray-800 dark:text-gray-100 mb-2">
-                                            <a href="forum-post.html">Which are the main channels you use to drive
-                                                traffic to your website? 📈</a>
-                                        </h2>
-                                        <!-- Footer -->
-                                        <footer class="flex flex-wrap text-sm">
-                                            <div
-                                                class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
-                                                    href="#0">sophiestar</a>
-                                            </div>
-                                            <div
-                                                class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <span class="text-gray-500">3d</span>
-                                            </div>
-                                            <div
-                                                class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <span class="text-gray-500">66 Comments</span>
-                                            </div>
-                                        </footer>
-                                    </div>
-                                    <!-- Upvote button -->
-                                    <div class="shrink-0">
-                                        <button
-                                            class="text-xs font-semibold text-center h-12 w-12 border border-gray-200 dark:border-gray-700/60 hover:border-gray-300 dark:hover:border-gray-600 rounded-lg flex flex-col justify-center items-center">
-                                            <svg class="inline-flex fill-gray-400 dark:fill-gray-500 mt-1.5 mb-1.5"
-                                                width="12" height="6" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="m0 6 6-6 6 6z"></path>
-                                            </svg>
-                                            <div>31</div>
-                                        </button>
                                     </div>
                                 </div>
                             </article>
@@ -512,7 +365,7 @@
                                         <footer class="flex flex-wrap text-sm">
                                             <div
                                                 class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                <a class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                     href="#0">molliehacks</a>
                                             </div>
                                             <div
@@ -558,7 +411,7 @@
                                         <footer class="flex flex-wrap text-sm">
                                             <div
                                                 class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                <a class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                     href="#0">davidp1</a>
                                             </div>
                                             <div
@@ -604,7 +457,7 @@
                                         <footer class="flex flex-wrap text-sm">
                                             <div
                                                 class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                                                <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                <a class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                     href="#0">elenmisk</a>
                                             </div>
                                             <div
@@ -638,7 +491,7 @@
                                 <ul class="flex justify-center">
                                     <li class="ml-3 first:ml-0">
                                         <span
-                                            class="btn bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700/60 text-gray-300 dark:text-gray-600">&lt;-
+                                            class="btn bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700/60 text-gray-300">&lt;-
                                             Previous</span>
                                     </li>
                                     <li class="ml-3 first:ml-0">
@@ -843,7 +696,7 @@
                                                 last two years — AMA</a>
                                         </div>
                                         <div class="text-xs text-gray-500"><a
-                                                class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                 href="#0">markusj</a> · 2d · 312 comments</div>
                                     </li>
                                     <li>
@@ -853,7 +706,7 @@
                                                 project? 🤔</a>
                                         </div>
                                         <div class="text-xs text-gray-500"><a
-                                                class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                 href="#0">katemerlu</a> · 2h · 7 comments</div>
                                     </li>
                                     <li>
@@ -863,7 +716,7 @@
                                                 website? 📈</a>
                                         </div>
                                         <div class="text-xs text-gray-500"><a
-                                                class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                 href="#0">sophiestar</a> · 3d · 66 comments</div>
                                     </li>
                                     <li>
@@ -873,7 +726,7 @@
                                                 takeaways.</a>
                                         </div>
                                         <div class="text-xs text-gray-500"><a
-                                                class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                 href="#0">ekuplu89</a> · 4h · 14 comments</div>
                                     </li>
                                     <li>
@@ -883,7 +736,7 @@
                                                 growing your audience 🚀</a>
                                         </div>
                                         <div class="text-xs text-gray-500"><a
-                                                class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
+                                                class="font-medium text-primary hover:text-violet-600 dark:hover:text-violet-400"
                                                 href="#0">molliehacks</a> · 3d · 32 comments</div>
                                     </li>
                                 </ul>

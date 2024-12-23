@@ -1,6 +1,6 @@
 {
-  "theme_label": "Release Guide",
-  "theme_description": "小型CMS内容管理系统，用于构建如产品更新、公告发布、新闻、博客、日志、常见问题等。",
+  "theme_label": "Intranet",
+  "theme_description": "组织内部知识共享平台，用于发布公司动态、活动通知，分享经验和最佳实践，员工手册、职业发展以及企业文化宣传。",
   "generic": {
     "search": "👋 搜索",
     "search_from": "搜索结果：",
@@ -14,6 +14,7 @@
     "empty": "内容为空",
     "published_at": "发布于",
     "articles": "篇文章",
+    "dashboard": "控制台",
     "read_more": "阅读更多",
     "404": "404 页面找不到",
     "403": "403 无访问权限",
@@ -27,6 +28,10 @@
   },
   "buttons": {
     "login": "登录",
+    "logout": "退出",
+    "not_login": "你还未登录",
+    "create_post": "发布帖子",
+    "profile": "个人中心",
     "sso_login": "SSO 登录",
     "baklib_login": "Baklib 账号登录"
   },

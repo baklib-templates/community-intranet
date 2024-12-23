@@ -1,6 +1,6 @@
 {
-  "theme_label": "Release Guide",
-  "theme_description": "Small document content management, used to build what's news, guides, FAQs, Releases, Blog, etc.",
+  "theme_label": "Intranet",
+  "theme_description": "An internal knowledge sharing platform for publishing news, events, sharing experiences, employee handbooks and corporate culture promotion.",
   "generic": {
     "search": "👋 What Can We Help?",
     "search_from": "All search results from: ",
@@ -9,10 +9,12 @@
     "feedback": "Feedback?",
     "tags": "Tags",
     "home": "Home",
-    "back": "Back",
+    "back": "Back",    
     "submit": "Submit",
     "empty": "Content is Empty",
     "published_at": "Published at",
+    "articles": "articles",
+    "dashboard": "Dashboard",
     "404": "404 not found",
     "403": "403 No access permission",
     "copyright": "All rights reserved",
@@ -25,6 +27,10 @@
   },
   "buttons": {
     "login": "Login",
+    "logout": "Logout",
+    "not_login": "You are not login",
+    "create_post": "Create Post",
+    "profile": "Profile",
     "sso_login": "SSO Login",
     "baklib_login": "Baklib Account Login"
   },

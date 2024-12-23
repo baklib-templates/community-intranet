@@ -100,10 +100,10 @@
 <!--/ article-->
 {% schema %}
     {
-    "name": "Page",
-    "thumb_url": "images/theme/page.png",
-    "description": "文章详情模板",
-    "sub_page_templates": ["page"],
+    "name": "Event",
+    "thumb_url": "images/theme/event.png",
+    "description": "活动详情模板",
+    "sub_page_templates": [],
     "settings": [
         {
           "id": "type",
@@ -117,6 +117,11 @@
           "type": "tag_picker",
           "multiple": true,
           "label": "标签"
+        },
+        {
+          "id": "date",
+          "type": "date",
+          "label": "时间"
         },
         {
           "id": "thumb_url",
