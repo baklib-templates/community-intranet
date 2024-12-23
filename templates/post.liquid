@@ -8,39 +8,30 @@
 <div class="flex flex-col min-h-full bg-gray-50">
 
   <div class="flex-1 lg:pb-24 sm:px-8 lg:pt-12 lg:px-12">
-    <div class="flex flex-col justify-between mx-auto max-w-screen-xl md:flex-row">
+    <div class="flex flex-col justify-between mx-auto max-w-screen md:flex-row">
 
       <!-- main content -->
-      <main class="order-1 w-full md:order-2">
+      <main class="flex-1 w-full min-w-3xl">
         <div class="px-6 py-6 md:py-8 md:px-12 bg-white rounded-md shadow-lg  shadow-slate-200">
-          <h1 class="h2">
-            {{ page.settings.title }}
-          </h1>
-
-          <div>
-            <div class="flex items-center space-x-2 mb-4">
+          
+          <!-- Page header -->
+          <header class="mb-4">
+            <h1 class="mb-4 h2 md:h1 font-aspekta">{{ page.link_text  }}</h1>
+            <div class="flex items-center">
               {% if site.settings.is_allow_author %}
-                <img src="{{ page.author.avatar_url | default: site.settings.default_avatar }}" class="w-8 h-8 rounded-full" />
+                <img class="mr-2 rounded-full" src="{{ page.author.avatar_url | default: site.settings.default_avatar }}" width="20" height="20"
+                  alt="User 01" />
+                <div class="text-sm text-slate-600">
+                  <a class="font-medium"
+                    href="#0">{{ page.author.name }}</a> · <span class="text-slate-500">{{ page.created_at | date: "%Y-%m-%d %H:%M" }}</span> · <span
+                    class="text-slate-500">{{ page.comments | size }} {{ 'generic.comments' | t}}</span>
+                </div>
               {% endif %}
-              <div>
-                {% if site.settings.is_allow_author %}
-                  <p class="text-lead line-clamp-2 mb-[3px] text-gray-900 text-heading-6">
-                    {{ page.author.name }}
-                  </p>
-                {% endif %}
-                {% if site.settings.is_allow_published_at %}
-                  <p class="text-sm text-gray-500 text-md">发布于：{{ page.published_at | date: "%Y-%m-%d" }}</p>
-                {% endif %}
-              </div>
             </div>
-          </div>
+          </header>
 
-          <article class="max-w-full">
-            <div class="overflow-auto">
-              <div class="ProseMirror prose sm:prose-base lg:prose-lg focus:outline-none">
-                {{ page.settings.content }}
-              </div>
-            </div>
+          <article class="ProseMirror break-words">
+            {{ page.settings.content | sanitize_html }}
           </article>
 
           <!--Tags-->
@@ -55,67 +46,90 @@
             </div>
           {% endif %}
 
-          <!-- Feedback -->
-          <div class="py-8 lg:flex lg:items-center lg:justify-between">
-            <div></div>
-            <div class="">
-              <div class="text-lg font-bold text-slate-800 ">{{ 'generic.feedback' | t }}</div>
-              {% render "feedback_form", page: page %}
-            </div>
-          </div>
-
           <!-- Sub Post Section -->
           {% render 'sub_page_list', page: page %}
-        </div>
-        <!-- comments -->
-        <section class="max-w-screen-sm mx-auto">
-          {% if page.author.id == current_user.member_id %}
-            <div class="my-4">
-              <div class="relative p-5 border rounded-md bg-slate-200 dark:bg-slate-800 border-slate-600">
-                <div class="items-center space-y-3 sm:flex sm:space-y-0 sm:space-x-5">
-                    <a href="/s/edit?page_path={{ page.full_slug }}" class="btn">
-                      <span>再次编辑</span>
-                    </a>
-                    {% form_tag 'delete_page', page %}
-                      <button class="btn btn-ghost"> 删除 </button>
-                    {% endform_tag %}
-                </div>
+
+          <!-- Upvotes button -->
+          <div class="flex justify-center mx-auto mt-12 border-t">
+            <div class="shrink-0 mt-4" x-data="{ posted_feedback: {{ page.visitor_posted_feedback }}, feedback_count: {{ page | feedback_type_count: site.settings.feedback_useful_type }}  } ">
+              <div x-show="posted_feedback == true" @click="posted_feedback=false;feedback_count--" x-cloak>
+                {% form_tag 'delete_feedback', page: page, useful_type: site.settings.feedback_useful_type %}
+                  <div class="shrink-0">
+                    <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type  }}"
+                    :class="{ '!bg-primary': '{{ site.settings.feedback_useful_type }}' === '{{ page.last_feedback_emoji }}' }"
+                      class="h-16 w-16 pt-2 items-center text-center flex flex-col rounded-full border border-primary bg-primary hover:bg-slate-300 dark:hover:bg-slate-800">
+                        <span>{{ site.settings.feedback_useful_type }}</span>
+                        <span class="text-white" x-text="feedback_count"></span>
+                    </button>
+                    <span>feedback</span>
+                  </div>
+                {% endform_tag %}
+              </div>
+              <div x-show="posted_feedback == false" @click="posted_feedback=true;feedback_count++"  x-cloak>
+                {% form_tag 'feedback', page: page %}
+                  <div class="shrink-0">
+                    <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
+                      class="h-16 w-16 pt-2 items-center text-center flex flex-col rounded-full border border-primary-200 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 hover:bg-slate-300 dark:hover:bg-slate-800">
+                        <span>{{ site.settings.feedback_useful_type }}</span>
+                        <span class="" x-text="feedback_count"></span>
+                    </button>
+                    <span>feedback</span>
+                  </div>
+                {% endform_tag %}
               </div>
             </div>
-          {% endif %}
-
-          {% unless page.published_at %}
-            <p class="mt-4 text-sm font-bold text-info"> 内容正在审核，审核通过后其他人可查看 ! </p>
-          {% endunless %}
+          </div>
           
-          <div class="my-4">
-            {% render 'reply_page_form', target: page %}
-          </div>
-
-          <!-- Comments list -->
-          <div data-controller="load_more">
-            <h4 class="mb-2 font-bold "> {{ page.comments | size }} 条评论 </h4>
-            <!-- Comments (1st level) -->
-            {% assign answers = page.comments | roots  %}
-            <ul id="page_{{ page.id }}_replies_list" data-load_more-target="container">
-              {% paginate_tag answers, per: 4 %}
-                {% for reply in answers %}
-                  {% render 'reply', reply: reply %}
-                {% endfor %}
-              {% endpaginate_tag %}
-            </ul>
-            {{ paginate.next.page  }}
-            {% if paginate.next_page %}
-              <button id="load_more" data-action="click->load_more#loadMore" data-load_more-url-value="/s/replies?page_path={{ page.full_slug }}&_page={{ paginate.next_page }}"
-              data-load_more-target="button"
-              >
-                查看更多回复
-              </button>
-            {% endif %}
-          </div>
-        </section>
+        </div>
       </main>
       <!-- main content -->
+      <!-- comments -->
+      <section class="mx-auto max-w-xl min-w-xl px-6 py-6 md:py-8 bg-white rounded-md shadow-lg shadow-slate-200">
+        {% if page.author.id == current_user.member_id %}
+          <div class="my-4">
+            <div class="relative p-5 border rounded-md bg-slate-200 dark:bg-slate-800 border-slate-600">
+              <div class="items-center space-y-3 sm:flex sm:space-y-0 sm:space-x-5">
+                  <a href="/s/edit?page_path={{ page.full_slug }}" class="btn">
+                    <span>{{ 'buttons.edit_post' | t }}</span>
+                  </a>
+                  {% form_tag 'delete_page', page %}
+                    <button class="btn btn-ghost"> {{ 'buttons.delete' | t }} </button>
+                  {% endform_tag %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {% unless page.published_at %}
+          <p class="mt-4 text-sm font-bold text-info"> {{ 'generic.under_review' | t }} </p>
+        {% endunless %}
+        
+        <div class="my-4">
+          {% render 'reply_page_form', target: page %}
+        </div>
+
+        <!-- Comments list -->
+        <div data-controller="load_more">
+          <h4 class="mb-2 h4 font-bold "> {{ page.comments | size }} {{ 'generic.comments' | t }} </h4>
+          <!-- Comments (1st level) -->
+          {% assign answers = page.comments | roots  %}
+          <ul id="page_{{ page.id }}_replies_list" data-load_more-target="container">
+            {% paginate_tag answers %}
+              {% for reply in answers %}
+                {% render 'reply', reply: reply %}
+              {% endfor %}
+            {% endpaginate_tag %}
+          </ul>
+          {{ paginate.next.page  }}
+          {% if paginate.next_page %}
+            <button id="load_more" data-action="click->load_more#loadMore" data-load_more-url-value="/s/replies?page_path={{ page.full_slug }}&_page={{ paginate.next_page }}"
+            data-load_more-target="button" class="btn btn-ghost"
+            >
+              {{ 'generic.read_more' | t }}
+            </button>
+          {% endif %}
+        </div>
+      </section>
 
     </div>
   </div>

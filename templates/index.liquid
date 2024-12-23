@@ -2,6 +2,9 @@
 {% assign channels = site.pages['/'].children_in_nav_menu | order_by: '-created_at' %}
 
 <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+  
+  <div>{{ page.settings.features }}</div>
+
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
     {% for channel in channels %}
       {% assign random_number = "now" | date: "%N" | modulo: 900 | plus: 0 %}
@@ -84,7 +87,16 @@
     "preview_image_urls": [
       "images/theme/index.png"
     ],
-    "sub_page_templates": ["events", "forum", "changelog", "products", "faqs", "channel"]
+    "sub_page_templates": ["events", "forum", "changelog", "products", "faqs", "channel"],
+    "settings": [
+      {
+        "id": "features",
+        "type": "html",
+        "label": "HTML 代码",
+        "info": "在首页添加自定义 HTML 代码",
+        "rows": 10
+      }
+    ]
   }
 {% endschema %}
 

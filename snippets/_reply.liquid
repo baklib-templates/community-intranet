@@ -13,11 +13,11 @@
       </div>
     </div>
     <div class="mb-1 space-y-4 text-sm">
-      <article class="ProseMirror text-slate-600 dark:text-slate-400">
+      <article class="ProseMirror break-words">
         {% if reply.root.id != reply.parent.id %}
           <span class="text-sm text-primary"> @ {{ reply.reply_to_user.name }} </span>
         {% endif %}
-        <div class="ml-4 border rounded-md p-4 break-words max-w-3xl">{{ reply.body | sanitize_html }}</div>
+        <div class="ml-4 border rounded-md p-2 break-words max-w-xl">{{ reply.body | sanitize_html }}</div>
       </article>
     </div>
     {% if current_user %}

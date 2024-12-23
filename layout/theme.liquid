@@ -13,7 +13,7 @@
     </style>
     {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
-    {% if true %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
+    {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     {{ site.settings.head_html }}
   </head>
   <body class="h-screen bg-gray-100 text-gray-600" id="js-body" data-controller="theme">

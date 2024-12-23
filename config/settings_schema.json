@@ -104,19 +104,11 @@
         "default": false
       },
       {
-        "id": "feedback_useful_type",
-        "type": "text",
-        "label": "t:settings_schema.generic.settings.feedback_useful_type.label",
-        "placeholder": "t:settings_schema.generic.settings.feedback_useful_type.placeholder",
-        "default": "😊"
-      },
-      {
         "id": "logo_url",
         "type": "image_picker",
         "ratio": "3:1",
         "width": 150,
-        "label": "t:settings_schema.generic.settings.logo_url.label",
-        "info": "t:settings_schema.generic.settings.logo_url.info"
+        "label": "站点 LOGO"
       },
       {
         "id": "default_avatar",
@@ -127,40 +119,29 @@
         "info": "新注册用户未设置头像之前，显示该默认头像"
       },
       {
-        "id": "slogan",
-        "type": "text",
-        "label": "t:settings_schema.generic.settings.slogan.label",
-        "default": "👋 What Can We Help?"
-      },
-      {
-        "id": "copyright_info",
-        "type": "text",
-        "label": "t:settings_schema.generic.settings.copyright_info.label",
-        "placeholder": "t:settings_schema.generic.settings.copyright_info.placeholder"
-      },
-      {
         "id": "hot_tags",
         "type": "text",
         "label": "热门标签",
-        "info": "用英文逗号隔开"
+        "info": "用英文逗号隔开，且保证在【标签管理】中已添加了该标签。"
+      },
+      {
+        "id": "is_allow_author",
+        "type": "checkbox",
+        "label": "文章是否显示作者信息",
+        "default": true
       },
       {
         "id": "is_allow_feedback",
         "type": "checkbox",
-        "label": "t:settings_schema.generic.settings.is_allow_feedback.label",
+        "label": "文章是否显示反馈表情",
         "default": true
       },
       {
-        "id": "is_allow_header",
-        "type": "checkbox",
-        "label": "t:settings_schema.generic.settings.is_allow_header.label",
-        "default": true
-      },
-      {
-        "id": "is_allow_footer",
-        "type": "checkbox",
-        "label": "t:settings_schema.generic.settings.is_allow_footer.label",
-        "default": true
+        "id": "feedback_useful_type",
+        "type": "text",
+        "label": "首选反馈表情",
+        "placeholder": "在'应用设置'->'反馈设置'中复制过来",
+        "default": "😊"
       }
     ]
   },
