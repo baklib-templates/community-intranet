@@ -55,6 +55,7 @@
     "not_login": "You are not login",
     "create_post": "Create Post",
     "create_comment": "Add Comment",
+    "join": "Join Community",
     "edit_post": "Edit Post",
     "profile": "Profile",
     "sso_login": "SSO Login",

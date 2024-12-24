@@ -4,7 +4,7 @@
 {%  assign page = current_user.pages[params.page_path] %}
 {% if current_user %}
   <main class="flex flex-col min-h-full bg-white">
-    <section class="relative overflow-hidden">
+    <section class="relative overflow-y-auto">
       <!-- Illustration -->
       <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -z-10" aria-hidden="true">
           <img src="{{ 'images/demo/hero-illustration.svg' | asset_url }}" class="max-w-none" width="1905" height="622" alt="Hero Illustration">
@@ -37,7 +37,7 @@
   </main>
 {% else %}
   <div class="w-2/3 px-2 mx-auto sm:px-6 min-h-fit">
-    未登录跳转登录页...
+    {{ 'buttons.redirect_to' | t }}...
     {% form_tag 'sign_in_with_baklib' %}
       <input value="true" type="hidden" name="sign_up">
       <input type="submit"

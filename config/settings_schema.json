@@ -142,6 +142,24 @@
         "label": "首选反馈表情",
         "placeholder": "在'应用设置'->'反馈设置'中复制过来",
         "default": "😊"
+      },
+      {
+        "id": "slogan",
+        "type": "text",
+        "label": "站点口号",
+        "default": "Create community sites, code-free"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "站点描述",
+        "default": "Browse beautifully designed templates, effortlessly customize it to meet your specific requirements."
+      },
+      {
+        "id": "copyright_info",
+        "type": "text",
+        "label": "版权信息",
+        "placeholder": "Tanmer Inc. All Rights Served."
       }
     ]
   },

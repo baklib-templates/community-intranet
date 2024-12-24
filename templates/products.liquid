@@ -23,7 +23,6 @@
             <div class="flex flex-col space-y-10 sm:flex-row sm:space-x-6 sm:space-y-0 md:flex-col md:space-x-0 md:space-y-10 xl:flex-row xl:space-x-6 xl:space-y-0 mt-9">
 
                 <!-- Sidebar -->
-                
 
                 <!-- Content -->
                 <div>
@@ -32,13 +31,13 @@
                     <div class="mb-5">
                         <ul class="flex flex-wrap -m-1">
                             <li class="m-1">
-                                <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-800 transition">
-                                    {{ 'generic.all' | t }}</button>
+                                <a href="{{ page.path }}" class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-800 transition">
+                                    {{ 'generic.all' | t }}</a>
                             </li>
                             {% for tag in page.settings.tags %}
                                 <li class="m-1">
-                                    <a href="{{ tag.path }}"
-                                        class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-gray-200 dark:border-gray-700/60 hover:border-gray-300 dark:hover:border-gray-600 shadow-sm bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition">{{ tag.name }}</a>
+                                    <a href="{{ page.path |  append: '?tag=' |  append: tag.name }}"
+                                        class="{% if tag.name == params['tag'] %} underline bg-primary text-white {% endif %} inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-gray-200 dark:border-gray-700/60 hover:border-gray-300 dark:hover:border-gray-600 shadow-sm dark:bg-gray-800 text-gray-500 dark:text-gray-400 transition">{{ tag.name }}</a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -49,9 +48,13 @@
                             <div class="grid grid-cols-4 gap-6">
                                 {% for item in pages %}
                                     <!-- Card 1 -->
-                                    {% render 'product', item: item, bg_color: 'bg-white' %}
+                                    {% if params['tag'] == nil or (params['tag'] and (tag_names contains params['tag'])) %} 
+                                        <!-- Item 1 -->
+                                        {% render 'product', item: item, bg_color: 'bg-white' %}
+                                    {% endif %}
+                                    
                                     {% if forloop.index == 6 %}
-                                        {% render 'cta_one' %}
+                                        {%# render 'cta_one' %}
                                     {% endif %}
                                 {% endfor %}
                             </div>
@@ -79,9 +82,11 @@
     "sub_page_templates": ["products", "product"],
     "settings": [
         {
-            "id": "description",
-            "type": "textarea",
-            "label": "描述"
+            "id": "icon",
+            "type": "image_picker",
+            "ratio": "1:1",
+            "width": 100,
+            "label": "图标"
         },
         {
             "id": "tags",
@@ -90,18 +95,9 @@
             "label": "标签"
         },
         {
-            "id": "thumb_image_url",
-            "type": "image_picker",
-            "ratio": "4:1",
-            "width": 640,
-            "label": "主页封面"
-        },
-        {
-            "id": "icon",
-            "type": "image_picker",
-            "ratio": "1:1",
-            "width": 100,
-            "label": "图标"
+            "id": "description",
+            "type": "textarea",
+            "label": "描述"
         }
     ]
 }

@@ -8,6 +8,14 @@
             <!-- Header: Left side -->
             <div class="flex">
                 <!-- Hamburger button -->
+                {% if current_user %}
+                    <a href="/s/new" class="ml-8 md:ml-0 py-2 text-white btn-sm bg-primary hover:bg-secondary">{{ 'buttons.create_post' | t }}</a>
+                {% else %}
+                    {% form_tag 'sign_in_with_baklib' %}
+                        <input value="true" type="hidden" name="sign_up">
+                        <input type="submit" value="{{ 'buttons.join' | t }}"  class="ml-8 md:ml-0 btn bg-primary" data-disable-with=" ... ">
+                    {% endform_tag %}
+                {% endif %}
             </div>
 
             <!-- Header: Right side -->
