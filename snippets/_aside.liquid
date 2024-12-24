@@ -103,46 +103,48 @@
           {% endfor %}
 
           {% if false %}
-          <span class="block px-4 mt-4 mb-2 text-xs font-semibold tracking-widest text-gray-400 uppercase">Apps</span>
-          <ul>
-            <li>
-              <a href="/s/get-started" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                </svg>
-                <span class="transition-colors duration-100 group-hover:text-white">Get Started</span>
-              </a>
-            </li>
-            <li>
-              <a href="/s/roadmap" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                </svg>
-                <span class="transition-colors duration-100 group-hover:text-white">Roadmap</span>
-              </a>
-            </li>
-            <li>
-              <a href="/s/feed" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                </svg>
-                <span class="transition-colors duration-100 group-hover:text-white">Feed</span>
-              </a>
-            </li>
-            <li>
-              <a href="/s/sitemap" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                </svg>
-                <span class="transition-colors duration-100 group-hover:text-white">Sitemap</span>
-              </a>
-            </li>
-          </ul>
-          <span class="block px-4 mt-4 mb-2 text-xs font-semibold tracking-widest text-gray-400 uppercase">External Links</span>
-          <ul>
-            {% if site.settings.header_menu_html %}
-              {{ site.settings.header_menu_html }}
-            {% else %}
+            <span class="block px-4 mt-4 mb-2 text-xs font-semibold tracking-widest text-gray-400 uppercase">Apps</span>
+            <ul>
+              <li>
+                <a href="/s/get-started" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                  <span class="transition-colors duration-100 group-hover:text-white">Get Started</span>
+                </a>
+              </li>
+              <li>
+                <a href="/s/roadmap" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                  <span class="transition-colors duration-100 group-hover:text-white">Roadmap</span>
+                </a>
+              </li>
+              <li>
+                <a href="/s/feed" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                  <span class="transition-colors duration-100 group-hover:text-white">Feed</span>
+                </a>
+              </li>
+              <li>
+                <a href="/s/sitemap" class="flex items-center px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-colors duration-300 group-hover:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                  <span class="transition-colors duration-100 group-hover:text-white">Sitemap</span>
+                </a>
+              </li>
+            </ul>
+          {% endif %}
+
+          {% if site.settings.header_menu_html %}
+            {{ site.settings.header_menu_html }}
+          {% else %}
+            <span class="block px-4 mt-4 mb-2 text-xs font-semibold tracking-widest text-gray-400 uppercase">External Links</span>
+            <ul>
               <li>
                 <a href="https://www.baklib.cn" target="_blank" class="flex items-center justify-between px-4 py-1 space-x-2 text-sm leading-7 hover:bg-gray-900 group">
                   <span class="flex items-center space-x-2">
@@ -163,10 +165,10 @@
                   </span>
                 </a>
               </li>
-            {% endif %}
-          </ul>
+              
+            </ul>
           {% endif %}
-
+          
           <span class="block px-4 mt-4 mb-2 text-xs font-semibold tracking-widest text-gray-400 uppercase">{{ 'generic.tags' | t}}</span>
           <ul>
             {% if site.settings.hot_tags %}

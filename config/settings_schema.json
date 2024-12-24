@@ -7,16 +7,17 @@
     "theme_version": "1.0.0",
     "theme_scope": "community",
     "theme_author": "Baklib",
-    "theme_documentation_url": "https://help.baklib.cn/themes/intranet",
-    "theme_support_url": "https://help.baklib.cn/themes/intranet/settings",
+    "theme_documentation_url": "https://help.baklib.cn/themes/community/intranet",
+    "theme_support_url": "https://help.baklib.cn/themes/community/intranet/settings",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
       "images/theme/intranet.png",
+      "images/theme/index-mockup.png",
+      "images/theme/channel-mockup.png",
       "images/theme/index.png",
       "images/theme/channel.png",
       "images/theme/events.png",
-      "images/theme/forum.png",
-      "images/theme/feed.png"
+      "images/theme/forum.png"
     ],
     "theme_languages": [
       {
